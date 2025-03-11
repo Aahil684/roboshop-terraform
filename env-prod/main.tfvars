@@ -2,12 +2,12 @@ instances = {
   frontend = {
     ami_id        = "ami-09c813fb71547fc4f"
     instance_type = "t3.micro"
-    ansible_roles = frontend-docker
+    ansible_role = frontend-docker
   }
   catalogue = {
     ami_id        = "ami-09c813fb71547fc4f"
     instance_type = "t3.micro"
-    ansible_roles = catalogue-docker
+    ansible_role = catalogue-docker
   }
   mongodb = {
     ami_id        = "ami-09c813fb71547fc4f"
@@ -21,7 +21,7 @@ instances = {
   cart = {
     ami_id        = "ami-09c813fb71547fc4f"
     instance_type = "t3.micro"
-    ansible_roles = cart-docker
+    ansible_role = cart-docker
 
   }
   user = {
@@ -31,7 +31,7 @@ instances = {
   shipping = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.micro"
-    ansible_roles = shipping-docker
+    ansible_role = shipping-docker
 
   }
 

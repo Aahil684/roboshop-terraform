@@ -8,6 +8,8 @@ module "ec2" {
   instance_type = each.value["instance_type"]
   vpc_security_group_ids = var.vpc_security_group_ids
   zone_id = var.zone_id
+  vault_token = var.vault_token
+  ansible_role = lookup(each.value,"ansible_role",each.key )
 
 
 
