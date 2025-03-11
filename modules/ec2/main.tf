@@ -21,13 +21,13 @@ resource "null_resource" "example" {
 
     connection {
       type        = "ssh"
-      user        = ec2-user
-      private_key = DevOps321
+      user        = data,vault_generic_secret.ssh.data["username"]
+      private_key = data.vault_generic_secret.ssh.data["password"]
       host        = aws_instance.instance.private_ip
     }
     inline = [
-      "sudo pip3.11 install ansible",
-      "ansible-pull -i localhost, -U https://github.com/Uzma-Solera/Ansible-repo.git roles.roboshop.yml -e component_name=${var.name}" -e env=${var.dev}",
+      "sudo pip3.11 install ansible hvac",
+      "ansible-pull -i localhost, -U https://github.com/Uzma-Solera/Ansible-repo.git roles.roboshop.yml -e component_name=${var.name} -e env=${var.dev} -e vault_token=${var.vault_token}",
     ]
 
   }
