@@ -21,7 +21,7 @@ resource "null_resource" "example" {
 
     connection {
       type        = "ssh"
-      user        = data,vault_generic_secret.ssh.data["username"]
+      user        = data.vault_generic_secret.ssh.data["username"]
       private_key = data.vault_generic_secret.ssh.data["password"]
       host        = aws_instance.instance.private_ip
     }
