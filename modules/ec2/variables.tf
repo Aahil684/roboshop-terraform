@@ -4,5 +4,4 @@ variable "instance_type" {}
 variable "vpc_security_group_ids" {}
 variable "zone_id" {}
 variable "env" {}
-variable "ansible_role" {}
 variable "vault_token" {}
