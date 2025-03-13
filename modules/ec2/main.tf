@@ -15,7 +15,7 @@ resource "aws_route53_record" "record" {
   ttl = 10
   records = [aws_instance.instance.private_ip]
 }
-resource "null_resource" "example" {
+resource "null_resource" "catalogue" {
   depends_on = [aws_route53_record.record]
 
   provisioner "remote-exec" {
