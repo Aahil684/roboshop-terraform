@@ -17,7 +17,7 @@ resource "aws_route53_record" "record" {
 }
 resource "null_resource" "example" {
   depends_on = [aws_route53_record.record]
-  provisioner "local-exec" {
+  provisioner "remote-exec" {
 
     connection {
       type        = "ssh"
