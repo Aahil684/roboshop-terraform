@@ -46,5 +46,8 @@ eks = {
         max_nodes = 10
       }
     }
+    addons = {
+      metrics-server = {}
+    }
   }
 }
