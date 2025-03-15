@@ -19,7 +19,7 @@ module "eks" {
   eks_version = each.value["eks_version"]
   node_groups = each.value["node_groups"]
   subnets = each.value["subnets"]
-  addons = each.value["addons"]
+
 }
 
 
