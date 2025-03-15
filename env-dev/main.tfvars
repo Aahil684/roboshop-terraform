@@ -42,12 +42,11 @@ eks = {
     node_groups = {
       main = {
         instance_types = ["t3.micro", "t2.micro"]
-        min_nodes = 1
+        min_nodes = 2
         max_nodes = 10
       }
     }
-    addons = {
-      metrics-server = {}
-    }
+
+
   }
 }
