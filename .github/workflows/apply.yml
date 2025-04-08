@@ -1,0 +1,15 @@
+name: terraform apply
+on: workflow_dispatch
+jobs:
+  terraform apply :
+    runs-on: self-hosted
+    steps:
+    - name: checkout repository code
+      uses: actions/checkout@v4
+    - name: Terraform apply
+      run: |
+        export PATH=/home/github/.local/bin:/home/github/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+        terraform init -backend-config=env-dev/state.tfvars
+        terraform apply -var-file=main.tfvars -var vault_token=${vault_token} -auto-approve
+      env:
+        vault_token: ${{ secrets.vault_token }}
