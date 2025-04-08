@@ -1,4 +1,4 @@
-name: terraform apply
+name: Terraform apply
 on: workflow_dispatch
 jobs:
   Terraform apply:
