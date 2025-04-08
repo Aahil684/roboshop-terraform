@@ -1,7 +1,7 @@
 name: Terraform apply
 on: workflow_dispatch
 jobs:
-  Terraform apply:
+  Terraform:
     runs-on: self-hosted
     steps:
     - name: checkout repository code
