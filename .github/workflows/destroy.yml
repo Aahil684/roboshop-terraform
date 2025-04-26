@@ -1,0 +1,14 @@
+name: terraform destroy
+on: workflow_dispatch
+jobs:
+  Terraform destroy:
+    runs_on: self_hosted
+    steps:
+      - name: checkout repository code
+        uses: actions/checkout@v4
+        run: |
+          export PATH=/home/github/.local/bin:/home/github/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+          terraform init -backend-config=env-dev/state.tfvars
+          terraform destroy -var-file=env-dev/main.tfvars -auto-approve
+        env:
+          vault_token: ${{ secrets.Vault_token }}

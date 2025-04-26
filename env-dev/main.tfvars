@@ -1,34 +1,27 @@
-instances = {
-  frontend = {
-    ami_id        = "ami-09c813fb71547fc4f"
-    instance_type = "t2.micro"
-  }
-  catalogue = {
-    ami_id        = "ami-09c813fb71547fc4f"
-    instance_type = "t2.micro"
-  }
+db_instances = {
+
   mongodb = {
-     ami_id        = "ami-09c813fb71547fc4f"
-     instance_type = "t2.micro"
-   }
-
+    ami_id           = "ami-09c813fb71547fc4f"
+    instance_type    = "t3.small"
+    root_volume_size = 20
+  }
   redis = {
-    ami_id = "ami-09c813fb71547fc4f"
-    instance_type = "t2.micro"
-  }
-  cart = {
-    ami_id = "ami-09c813fb71547fc4f"
-    instance_type = "t2.micro"
+    ami_id           = "ami-09c813fb71547fc4f"
+    instance_type    = "t3.small"
+    root_volume_size = 20
   }
 
-  User = {
-    ami_id = "ami-09c813fb71547fc4f"
-    instance_type = "t2.micro"
+  mysql = {
+    ami_id           = "ami-09c813fb71547fc4f"
+    instance_type    = "t3.small"
+    root_volume_size = 20
   }
-  shipping = {
-    ami_id = "ami-09c813fb71547fc4f"
-    instance_type = "t2.micro"
+  rabbitmq = {
+    ami_id           = "ami-09c813fb71547fc4f"
+    instance_type    = "t3.small"
+    root_volume_size = 20
   }
+
 }
 
 zone_id = "Z01537493BA6YJ34JEG5T"
@@ -42,11 +35,19 @@ eks = {
     node_groups = {
       main = {
         instance_types = ["t3.micro", "t2.micro"]
-        min_nodes = 2
+        min_nodes = 3
         max_nodes = 10
       }
     }
+    addons = {
+      #metrics-server = {}
+    }
+    access = {
+      workstation = {
+        role =
+        kubernetes_groups = []
 
-
+      }
+    }
   }
 }

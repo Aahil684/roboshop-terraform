@@ -5,3 +5,5 @@ variable "vpc_security_group_ids" {}
 variable "zone_id" {}
 variable "env" {}
 variable "vault_token" {}
+variable "root_volume_size" {}
+variable "addons" {}
