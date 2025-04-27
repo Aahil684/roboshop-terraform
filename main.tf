@@ -9,7 +9,7 @@ module "ec2" {
   vpc_security_group_ids = var.vpc_security_group_ids
   zone_id                = var.zone_id
   vault_token            = var.vault_token
-
+  root_volume_size       = each.value["root_volume_size"]
 }
 
 
