@@ -42,12 +42,9 @@ eks = {
     addons = {
       #metrics-server = {}
     }
-    access = {
-      workstation = {
-        role =
-        kubernetes_groups = []
 
-      }
-    }
+
+
+
   }
 }
