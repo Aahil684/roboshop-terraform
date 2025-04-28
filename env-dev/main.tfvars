@@ -34,8 +34,8 @@ eks = {
     subnets = ["subnet-0b0ba211ddd146877", "subnet-06d323ded2cdfe0bf"]
     node_groups = {
       main = {
-        instance_types = ["t3.micro", "t2.micro"]
-        min_nodes = 3
+        instance_types = ["t3.medium", "t3.small"]
+        min_nodes = 4
         max_nodes = 10
       }
     }
