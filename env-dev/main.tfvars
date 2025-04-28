@@ -44,7 +44,7 @@ eks = {
     }
     access = {
         workstation = {
-            role                   = arn:aws:iam::183295444327:role/workstation
+            role                   = "arn:aws:iam::183295444327:role/workstation"
             kubernetes_groups      = []
             policy_arn             = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
             access_scope_type     = "cluster"
