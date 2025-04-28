@@ -23,13 +23,18 @@ jobs:
       - name: checkout repo code
         uses: actions/checkout@v4
         with:
-          repository: https://github.com/Uzma-Solera/roboshop-cart.git
+          repository: Aahil684/roboshop-cart
+          path: app
+      - name: checkout repo code
+        uses: actions/checkout@v4
+        with:
+          repository: Aahil684/roboshop-helm
           path: helm
       - name: Helm install
         run: |
           export PATH=/home/github/.local/bin:/home/github/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
           cd app
-          GID=$(git log --pretty=format:'%h' -n 1)
+          GID=$(git log -1 --format=%H)
           aws eks update-kubeconfig --name dev
           bash argocd.sh cart dev $GID
 
@@ -40,14 +45,19 @@ jobs:
       - name: checkout repo code
         uses: actions/checkout@v4
         with:
-          repository: https://github.com/Uzma-Solera/roboshop-catalogue.git
-          path: helm
+          repository: Aahil684/roboshop-catalogue
+          path: app
+      - name: checkout repo code
+        uses: actions/checkout@v4
+        with:
+          repository: Aahil684/roboshop-helm
       - name: Helm install
         run: |
           export PATH=/home/github/.local/bin:/home/github/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
           cd app
-          GID=$(git log --pretty=format:'%h' -n 1)
+          GID=$(git log -1 --format=%H)
+          cd ../helm
           aws eks update-kubeconfig --name dev
-          bash argocd.sh cart dev $GID
+          bash argocd.sh catalogue dev $GID
           
 

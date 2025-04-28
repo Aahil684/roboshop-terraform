@@ -36,5 +36,23 @@ resource "aws_eks_addon" "addons" {
   addon_name   = "each.key"
 }
 
+resource "aws_eks_access_entry" "main" {
+  for_each          = var.access
+  cluster_name      = aws_eks_cluster.main.name
+  principal_arn     = each.value["role"]
+  kubernetes_groups = each.value["kubernetes_groups"]
+  type              = "STANDARD"
+}
 
+resource "aws_eks_access_policy_association" "main" {
+  for_each      = var.access
+  cluster_name  = aws_eks_cluster.main.name
+  policy_arn    = each.value["policy_arn"]
+  principal_arn = each.value["role"]
+
+  access_scope {
+    type       = each.value["access_scope_type"]
+    namespaces = each.value["access_scope_namespaces"]
+  }
+}
 
