@@ -82,12 +82,15 @@ resource "helm_release" "argocd" {
   create_namespace = true
   wait = "false"
 
+    set {
+      name  = "global-domain"
+      value = "argocd-${var.env}.uzma83.shop"
+    }
+
+
   values = [
     file("${path.module}/helm.config/argocd.yml")
   ]
 
-  set {
-    name  = "global-domain"
-    value = "argocd-${var.env}.uzma83.shop"
-  }
+
   }
