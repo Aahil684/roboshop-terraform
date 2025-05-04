@@ -40,7 +40,7 @@ jobs:
 
   Deploy-catalogue:
     runs-on: self-hosted
-    needs: Terraform apply
+    needs: Terraform-apply
     steps:
       - name: checkout repo code
         uses: actions/checkout@v4
