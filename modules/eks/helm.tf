@@ -24,6 +24,7 @@ resource "helm_release" "kube-prometheus-stack" {
   values = [
     file("${path.module}/helm-config/prom-stack-${var.env}.yml")
   ]
+  }
 
 
 resource "helm_release" "ingress-nginx" {
