@@ -27,9 +27,9 @@ resource "helm_release" "kube-prometheus-stack" {
   }
 
 
-resource "helm_release" "ingress-nginx" {
+resource "helm_release" "ingress" {
   depends_on = [null_resource.kubeconfig]
-  name       = "ingress-nginx"
+  name       = "ingress"
   repository = "https://kubernetes.github.io/ingress-nginx"
   chart      = "ingress-nginx"
 
