@@ -89,7 +89,7 @@ resource "helm_release" "argocd" {
 
 
   values = [
-    file("${path.module}/helm.config/argocd.yml")
+    file("modules/eks/helm.config/argocd.yml")
   ]
 
 
