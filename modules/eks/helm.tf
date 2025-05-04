@@ -89,3 +89,4 @@ resource "helm_release" "argocd" {
     name  = "global-domain"
     value = "argocd-${var.env}.uzma83.shop"
   }
+  }
