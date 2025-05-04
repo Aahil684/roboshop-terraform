@@ -41,7 +41,9 @@ eks = {
     }
     addons = {
       #metrics-server = {}
+      pod-identity-agent = {}
     }
+
     access = {
         workstation = {
             role                   = "arn:aws:iam::183295444327:role/workstation"

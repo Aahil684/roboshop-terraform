@@ -1,0 +1,48 @@
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    path: /
+    hosts:
+      - grafana-dev.uzma83.shop
+    annotations:
+      cert-manager. io/cluster-issuer: letsencrypt
+    tls:
+      - secretName: grafana-tls
+        hosts:
+          - grafana-dev.uzma83.shop
+
+prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    path: /
+    hosts:
+      - prometheus-dev.uzma83.shop
+    annotations:
+      cert-manager. io/cluster-issuer: letsencrypt
+    tls:
+      - secretName: prometheus-tls
+        hosts:
+          - prometheus-dev.uzma83.shop
+
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job: 'ec2-nodes'
+        relabel_configs:
+          - source_labels: [__meta_ec2_tag_Name]
+            target_label: instance
+          - source_labels: [__meta_ec2_instance_id]
+            target_label: instance_id
+        ec2_sd_configs:
+          - region: us-east-1
+            port: 9100
+            filters:
+              - name: "tag:monitor"
+                values: ["true"]
+        static_configs:
+          - target: ["ingress-nginx-controller-metrics:10254"]
+
+
+
+

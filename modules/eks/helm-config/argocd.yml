@@ -1,0 +1,11 @@
+configs:
+  params:
+    server.insecure: true
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager. io/cluster-issuer: letsencrypt
+    tls: true
