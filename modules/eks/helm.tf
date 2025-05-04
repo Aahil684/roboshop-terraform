@@ -46,7 +46,7 @@ resource "helm_release" "cert-manager" {
   repository = "https://charts.jetstack.io --force-update"
   chart      = "cert-manager"
   namespace  = "cert-manager"
-  create.namespace = "true"
+  create_namespace = true
 
 
   set {
@@ -78,7 +78,7 @@ resource "helm_release" "argocd" {
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "arogo-cd"
   namespace = "argocd"
-  create.namespace = "true"
+  create_namespace = true
   wait = "false"
 
   values = [
